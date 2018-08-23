@@ -1,0 +1,64 @@
+<div>
+  <form #f="ngForm" (ngSubmit)="onSubmitAdd(f.value)">
+    <table>
+      <h3>Location/Address Information</h3>
+      <tr>
+          <td>
+                <label for = "HouseNumber">HouseNumber:</label>
+          </td>
+
+          <td>
+                <input type="text" name="HouseNumber" id="HouseNumber" [(ngModel)]="HouseNumber"/>
+          </td>
+      </tr>
+      <tr>
+          <td>
+                <label for = "PostalCode">PostalCode:</label>
+          </td>
+
+          <td>
+                <input type="text" name="PostalCode" id="PostalCode" [(ngModel)]="PostalCode"/>
+          </td>
+      </tr>
+          <tr>
+          <td>
+                <label for = "Street">Street:</label>
+          </td>
+
+          <td>
+                <input type="text" name="Street" id="Street" [(ngModel)]="Street"/>
+          </td>
+      </tr>
+      <tr>
+          <td>
+                <label for = "City">City:</label>
+          </td>
+
+          <td>
+                <input type="text" name="City" id="City" [(ngModel)]="City"/>
+          </td>
+      </tr>
+      <tr>
+          <td>
+                <label for = "LocationX">LocationX:</label>
+          </td>
+
+          <td>
+                <input type="number" name="LocationX" id="LocationX" [(ngModel)]="LocationX"/>
+          </td>
+      </tr>
+      <tr>
+          <td>
+                <label for = "LocationY">LocationY:</label>
+          </td>
+
+          <td>
+                <input type="number" name="LocationY" id="LocationY" [(ngModel)]="LocationY"/>
+          </td>
+      </tr>
+    </table>
+    <div>
+        <input class="button button1" type="submit" value="Add"/>
+      </div>
+  </form>
+</div>

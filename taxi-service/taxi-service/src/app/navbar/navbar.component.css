@@ -1,0 +1,45 @@
+nav{
+  font-family: 'Lato', sans-serif;
+  background-color: yellow;
+}
+
+li:hover{
+background: gray;
+}
+
+.nav-link{
+  color: black;
+}
+
+.nav-item{
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+.navbar-brand{
+  font-weight: normal;
+  font-style: oblique;
+}
+
+.logo{
+color: black;
+font-family: 'cabin', sans-serif;
+font-size: 1.5em;
+}
+
+ul.nav a{
+transition:0.3s ease;
+}
+
+ul.nav a:hover{
+color: black;        
+}
+
+.active>a{
+background-color: yellow;
+}
+
+.topcorner{
+color:grey;
+font-size: 1.5em;
+}
