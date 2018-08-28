@@ -9,13 +9,11 @@ export class CommentClass{
     constructor (description: string, 
         date: Date,
         grade : number,
-        customerId : number,
         driveId : number) 
     {
         this.Description = description;
         this.Date = date;
         this.Grade = grade;
-        this.CustomerId = customerId;
         this.DriveId = driveId;
     }
 }

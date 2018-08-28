@@ -20,6 +20,14 @@ import { ShowDrivesComponent } from './show-drives/show-drives.component';
 import { ShowOwnDrivesComponent } from './show-own-drives/show-own-drives.component';
 import { ShowDriverDrivesComponent } from './show-driver-drives/show-driver-drives.component';
 import { ChangeStatusComponent } from './change-status/change-status.component';
+import { DriverProfileComponent } from './driver-profile/driver-profile.component';
+import { AddCommentComponent } from './add-comment/add-comment.component';
+import { AddPriceDestComponent } from './add-price-dest/add-price-dest.component';
+import { ShowWaitDrivesComponent } from './show-wait-drives/show-wait-drives.component';
+import { FilterComponent } from './filter/filter.component';
+import { SearchComponent } from './search/search.component';
+import { SearchByNameComponent } from './search-by-name/search-by-name.component';
+import { SortComponent } from './sort/sort.component';
 
 const  Routes = [
   {
@@ -72,6 +80,46 @@ const  Routes = [
     component: ShowOwnDrivesComponent,
   },
   {
+    path : "show-driver-drives", 
+    component: ShowDriverDrivesComponent,
+  },
+  {
+    path : "change-status", 
+    component: ChangeStatusComponent,
+  },
+  {
+    path : "driver-profile", 
+    component: DriverProfileComponent,
+  },
+  {
+    path : "add-comment", 
+    component: AddCommentComponent,
+  },
+  {
+    path : "add-price-destination", 
+    component: AddPriceDestComponent,
+  },
+  {
+    path : "show-wait-drives", 
+    component: ShowWaitDrivesComponent,
+  },
+  {
+    path : "filter", 
+    component: FilterComponent,
+  },
+  {
+    path : "search", 
+    component: SearchComponent,
+  },
+  {
+    path : "search-by-name", 
+    component: SearchByNameComponent,
+  },
+  {
+    path : "sort", 
+    component: SortComponent,
+  },
+  {
     path: "other",
     redirectTo: "home"
   },
@@ -98,7 +146,15 @@ const  Routes = [
     ShowDrivesComponent,
     ShowOwnDrivesComponent,
     ShowDriverDrivesComponent,
-    ChangeStatusComponent
+    ChangeStatusComponent,
+    DriverProfileComponent,
+    AddCommentComponent,
+    AddPriceDestComponent,
+    ShowWaitDrivesComponent,
+    FilterComponent,
+    SearchComponent,
+    SearchByNameComponent,
+    SortComponent
   ],
   imports: [
     BrowserModule,

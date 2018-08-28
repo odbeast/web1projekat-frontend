@@ -9,6 +9,7 @@
       <th>DestinationId</th>
       <th>AdminId</th>
       <th>DriverId</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +22,9 @@
       <td> {{d.DestinationId}} </td>
       <td> {{d.AdminId}} </td>
       <td> {{d.DriverId}} </td>
+      <td>
+          <button (click)="TakeDrive(d.Id)" class="btn btn-secondary">TakeDrive</button>        
+      </td>
     </tr>
   </tbody>
 </table>

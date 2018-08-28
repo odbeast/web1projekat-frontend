@@ -1,0 +1,42 @@
+<div>
+  <form #f="ngForm" (ngSubmit)="onSubmitAdd(f.value)">
+    <table>
+      <h3>Add Comment</h3>
+      <tr>
+          <td>
+                <label for = "Description">Description:</label>
+          </td>
+
+          <td>
+                <input type="text" name="Description" id="Description" [(ngModel)]="Description"/>
+          </td>
+      </tr>
+      <tr>
+        <td>
+              <label for = "Date">Date:</label>
+        </td>
+        <td>
+              <input type="date" name="Date" id="Date" [(ngModel)]="Date"/>
+        </td>
+    </tr>
+    <tr>
+      <td>
+            <label for = "Grade">Grade:</label>
+      </td>
+
+      <td>
+            <input type="number" name="Grade" id="Grade" [(ngModel)]="Grade"/>
+      </td>
+  </tr>
+  <td>
+    <label for = "DriveId">DriveId:</label>
+  </td>
+  <td>
+    <input type="number" name="DriveId" id="DriveId" value="{{DriveId}}" disabled/>
+  </td>
+    </table>
+    <div>
+        <input class="button button1" type="submit" value="Add"/>
+      </div>
+  </form>
+</div>

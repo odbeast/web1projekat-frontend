@@ -2,6 +2,7 @@ import { CommentClass } from "./comment";
 
 export class DriveClass{
     
+    Id : number;
     Date : Date;
     CarType: string;
     Price : number;

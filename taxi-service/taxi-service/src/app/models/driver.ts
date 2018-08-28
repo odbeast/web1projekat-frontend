@@ -1,7 +1,7 @@
 import { User } from "./user";
 
 export class DriverClass extends User{
-
+    
     LocationId: number;
     CarId : number;
     PasswordLogin : string;

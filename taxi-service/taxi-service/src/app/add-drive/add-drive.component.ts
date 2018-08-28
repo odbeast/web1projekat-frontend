@@ -74,13 +74,26 @@ export class AddDriveComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.Price = 0;
+    this.Status = RideStatus[0]
     this.getAdmin(localStorage.getItem("username"));
     this.getLocations();
     this.getDrivers();
   }
 
   onSubmit(){
-    let drive = new DriveClass(this.Date,TypeOfCar[this.CarType],this.Price,RideStatus[this.Status],this.OriginId,this.DestinationId,this.AdminId,this.DriverId);
+    let drive;
+    if (this.DriverId == undefined)
+    {
+      this.Status = RideStatus[0];
+      drive = new DriveClass(this.Date,TypeOfCar[this.CarType],this.Price,RideStatus[this.Status],this.OriginId,this.DestinationId,this.AdminId,null);
+    }
+    else
+    {
+      this.Status = RideStatus[2];
+      drive = new DriveClass(this.Date,TypeOfCar[this.CarType],this.Price,RideStatus[this.Status],this.OriginId,this.DestinationId,this.AdminId,this.DriverId);
+    }
+
     let headers = new HttpHeaders();
     headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
     headers.append('enctype','multipart/form-data');
