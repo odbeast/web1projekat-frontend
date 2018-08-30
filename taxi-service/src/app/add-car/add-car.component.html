@@ -1,0 +1,49 @@
+<div>
+    <form #f="ngForm" (ngSubmit)="onSubmitAdd(f.value)" id="formId">
+      <table>
+          <h3>Car Information</h3>
+          <tr>
+            <td>
+                  <label for = "CarYear">CarYear:</label>
+            </td>
+  
+            <td>
+                  <input type="number" name="CarYear" id="CarYear" [(ngModel)]="CarYear"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                  <label for = "TaxiNumber">TaxiNumber:</label>
+            </td>
+  
+            <td>
+                  <input type="number" name="TaxiNumber" id="TaxiNumber" [(ngModel)]="TaxiNumber"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                  <label for = "Registration">Registration:</label>
+            </td>
+  
+            <td>
+                  <input type="string" name="Registration" id="Registration" [(ngModel)]="Registration"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                  <label>Car:</label>
+            </td>
+            <td>
+              <select style="width: 100%" name="Cars" id="Car" [(ngModel)]="CarType">
+                <option value="None">None</option>
+                <option value="PassengerCar">PassengerCar</option>
+                <option value="Van">Van</option>
+             </select>
+            </td>
+          </tr>
+      </table>
+      <div>
+        <input class="button button1" type="submit" value="Add"/>
+      </div>
+    </form>
+</div>

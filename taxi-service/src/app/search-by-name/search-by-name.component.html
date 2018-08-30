@@ -1,0 +1,53 @@
+<div>
+  <form #f="ngForm" (ngSubmit)="onSubmitSearchByName(f.value)">
+  <table>
+    <tr>
+      <td>
+            <label>Search by name:</label>
+      </td>
+      <td>
+        <input type="text" name="FirstName" id="FirstName" [(ngModel)]="FirstName"/>
+      </td>
+      <td>
+        <input type="text" name="LastName" id="LastName" [(ngModel)]="LastName"/>
+      </td>
+      <td>
+        <input class="button button1" type="submit" value="Search by name"/>
+      </td>
+    </tr>
+  </table>
+  </form>
+  <br>
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Date</th>
+        <th>CarType</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>OriginId</th>
+        <th>DestinationId</th>
+        <th>AdminId</th>
+        <th>DriverId</th>
+        <th>Action</th>
+        <th>Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let d of drives">
+        <td> {{d.Date}} </td>
+        <td> {{d.CarType}} </td>
+        <td> {{d.Price}} </td>
+        <td> {{d.Status}} </td>
+        <td> {{d.OriginId}} </td>
+        <td> {{d.DestinationId}} </td>
+        <td> {{d.AdminId}} </td>
+        <td> {{d.DriverId}} </td>
+        <td>
+            <button (click)="ShowComment(d.Id)" class="btn btn-secondary">ShowComment</button>        
+        </td>
+          <td *ngIf="sameId(d.Id)">{{comment.Description}} <br> {{comment.Date}} <br> {{comment.Grade}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

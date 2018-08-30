@@ -1,0 +1,38 @@
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Date</th>
+      <th>CarType</th>
+      <th>Price</th>
+      <th>Status</th>
+      <th>OriginId</th>
+      <th>DestinationId</th>
+      <th>AdminId</th>
+      <th>DriverId</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> {{Date}} </td>
+      <td> {{CarType}} </td>
+      <td>
+        <input type="number" name="Price" id="Price" [(ngModel)]="Price"/>
+      </td>
+      <td> {{Status}} </td>
+      <td> {{OriginId}} </td>
+      <td>
+        <select style="width: 100%" name="Destinations" id="DestinationId" [(ngModel)]="DestinationId">
+            <option *ngFor = "let location of locations" value={{location.Id}} >{{location.Street}} {{location.HouseNumber}}</option>
+        </select>
+      </td> 
+      <td> {{AdminId}} </td>
+      <td> {{DriverId}} </td>
+      <td> {{Status}} </td>
+      <td>
+          <button  (click)="AddPriceDestination()" class="btn btn-secondary">Add Price/Destination</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

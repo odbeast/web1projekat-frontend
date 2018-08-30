@@ -1,0 +1,32 @@
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Date</th>
+      <th>CarType</th>
+      <th>Price</th>
+      <th>Status</th>
+      <th>OriginId</th>
+      <th>DestinationId</th>
+      <th>AdminId</th>
+      <th>DriverId</th>
+      <th>Action</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let d of drives">
+      <td> {{d.Date}} </td>
+      <td> {{d.CarType}} </td>
+      <td> {{d.Price}} </td>
+      <td> {{d.Status}} </td>
+      <td> {{d.OriginId}} </td>
+      <td> {{d.DestinationId}} </td>
+      <td> {{d.AdminId}} </td>
+      <td> {{d.DriverId}} </td>
+      <td>
+        <button (click)="ShowComment(d.Id)" class="btn btn-secondary">ShowComment</button>        
+      </td>
+      <td *ngIf="sameId(d.Id)">{{comment.Description}} <br> {{comment.Date}} <br> {{comment.Grade}}</td>
+    </tr>
+  </tbody>
+</table>
