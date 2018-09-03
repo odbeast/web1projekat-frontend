@@ -96,12 +96,12 @@ export class AddDriveComponent implements OnInit {
         if (this.DriverId == undefined)
         {
           this.Status = RideStatus[0];
-          drive = new DriveClass(this.Date,this.CarType,this.Price,this.Status,this.OriginId,this.DestinationId,this.AdminId,null);
+          drive = new DriveClass(this.Date,this.CarType,0,this.Status,this.OriginId,this.DestinationId,this.AdminId,null);
         }
         else
         {
           this.Status = RideStatus[2];
-          drive = new DriveClass(this.Date,this.CarType,this.Price,this.Status,this.OriginId,this.DestinationId,this.AdminId,this.DriverId);
+          drive = new DriveClass(this.Date,this.CarType,0,this.Status,this.OriginId,this.DestinationId,this.AdminId,this.DriverId);
         }
 
         let headers = new HttpHeaders();

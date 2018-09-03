@@ -16,7 +16,8 @@ import { Observable } from 'rxjs';
 })
 export class ChangeStatusComponent implements OnInit {
 
-  drives : DriveClass[];
+  drives : DriveClass[] = [];
+  drivesTemp : DriveClass[] = [];
   Status : string;
   public static DriveId: number;
 
@@ -31,7 +32,14 @@ export class ChangeStatusComponent implements OnInit {
     let driveData = this.getDrives(localStorage.getItem("username"));
     driveData.subscribe(
       res => {        
-        this.drives = res as DriveClass[];
+        this.drivesTemp = res as DriveClass[];
+        this.drivesTemp.forEach(obj => 
+          {
+            if(obj.Status != "Unsuccessfull" && obj.Status != "Successfull")
+            {
+              this.drives.push(obj);
+            }
+          })
       }
     )
   }
