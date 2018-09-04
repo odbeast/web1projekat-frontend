@@ -75,7 +75,7 @@ export class AddPriceDestComponent implements OnInit {
   ngOnInit() {
     this.DriveId = ChangeStatusComponent.DriveId;
     this.getLocations();
-    this.getDriveById()   
+    this.getDriveById();  
   }
 
   AddPriceDestination(){

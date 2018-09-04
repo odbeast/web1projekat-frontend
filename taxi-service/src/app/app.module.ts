@@ -36,6 +36,7 @@ import { TakeATaxiComponent } from './take-a-taxi/take-a-taxi.component';
 import { ShowUserDrivesComponent } from './show-user-drives/show-user-drives.component';
 import { IsCustomerGuard } from './guards/isCustomer.guard';
 import { IsNotAdminGuard } from './guards/isNotAdmin.guard';
+import { AssignDriveComponent } from './assign-drive/assign-drive.component';
 
 const  Routes = [
   {
@@ -147,6 +148,11 @@ const  Routes = [
     canActivate: [IsCustomerGuard],
   },
   {
+    path : "assign-drive", 
+    component: AssignDriveComponent,
+    canActivate: [IsAdminGuard],
+  },
+  {
     path: "other",
     redirectTo: "home"
   },
@@ -183,7 +189,8 @@ const  Routes = [
     SearchByNameComponent,
     SortComponent,
     TakeATaxiComponent,
-    ShowUserDrivesComponent
+    ShowUserDrivesComponent,
+    AssignDriveComponent
   ],
   imports: [
     BrowserModule,
