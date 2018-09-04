@@ -37,4 +37,9 @@ export class NavbarComponent implements OnInit {
     return this.localStorageService.isCustomer();
   }
 
+  IsNotDriver() : boolean {
+    this.role = localStorage.getItem("role");
+    return this.localStorageService.IsNotDriver();
+  }
+
 }

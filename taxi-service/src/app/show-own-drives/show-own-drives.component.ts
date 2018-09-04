@@ -24,7 +24,7 @@ export class ShowOwnDrivesComponent implements OnInit {
   constructor(private commentComponent : AddCommentComponent, private httpClient: HttpClient,private driveComponent : AddDriveComponent) { }
   
   ngOnInit() {
-    this.comment = new CommentClass("",null,null,null);
+    this.comment = new CommentClass("",null,null,null,null);
     let driveData = this.getDrives(localStorage.getItem("username"));
     driveData.subscribe(
       res => {        
@@ -58,6 +58,7 @@ export class ShowOwnDrivesComponent implements OnInit {
           this.comment.Date = res[0].Date;
           this.comment.Grade = res[0].Grade;
           this.comment.DriveId = res[0].DriveId;
+          this.comment.CustomerId = res[0].CustomerId;
         } 
         else
         {

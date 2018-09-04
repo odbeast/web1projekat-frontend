@@ -22,6 +22,7 @@ export class DriveClass{
     DestinationId : number;
     AdminId : number;
     DriverId : number;
+    CustomerId : number;
 
 
     constructor (date: Date, 
@@ -31,7 +32,8 @@ export class DriveClass{
         originId : number,
         destinationId : number,
         adminId : number,
-        driverId : number) 
+        driverId : number,
+        customerId : number) 
     {
         this.Date = date;
         this.CarType = carType;
@@ -41,5 +43,6 @@ export class DriveClass{
         this.DestinationId = destinationId;
         this.AdminId = adminId;
         this.DriverId = driverId;
+        this.CustomerId = customerId;
     }
 }

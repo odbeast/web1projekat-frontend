@@ -1,14 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router'; 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AddLocationComponent } from '../add-location/add-location.component';
 import { DriverClass } from '../models/driver';
 import { LocationClass } from '../models/location';
-import { AddDriverComponent } from '../add-driver/add-driver.component';
-import { AddCarComponent } from '../add-car/add-car.component';
 import { DriveClass } from '../models/drive';
+import { Router } from '@angular/router'; 
+import { User } from '../models/user';
 import { HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 enum TypeOfCar {
   None,
@@ -27,12 +25,12 @@ enum RideStatus {
 }
 
 @Component({
-  selector: 'app-add-drive',
-  templateUrl: './add-drive.component.html',
-  styleUrls: ['./add-drive.component.css'],
-  providers: [AddLocationComponent, AddDriverComponent, AddCarComponent]
+  selector: 'app-take-a-taxi',
+  templateUrl: './take-a-taxi.component.html',
+  styleUrls: ['./take-a-taxi.component.css'],
+  providers: [AddLocationComponent]
 })
-export class AddDriveComponent implements OnInit {
+export class TakeATaxiComponent implements OnInit {
 
   Date : Date;
   CarType: string;
@@ -42,67 +40,47 @@ export class AddDriveComponent implements OnInit {
   DestinationId : number;
   AdminId : number;
   DriverId : number;
+  CustomerId: number;
+  Customer : User;
   Driver : DriverClass;
   drivers: DriverClass[];
   locations: LocationClass[];
   @ViewChild("f") myForm;
 
-  constructor(private locationComponent : AddLocationComponent, private driverComponent : AddDriverComponent, private route : Router, private httpClient: HttpClient) { }
+  constructor(private locationComponent : AddLocationComponent, private route : Router, private httpClient: HttpClient) { }
 
   getLocations()
   {
     this.locationComponent.getAllLocations().subscribe(s => this.locations = s);
   }
 
-  getDrivers()
-  {
-    this.driverComponent.getAllAvailableDrivers().subscribe(s => this.drivers = s);
-  }
-
-  getAllDrives() : Observable<any>
-  {
-    return this.httpClient.get('http://localhost:51680/api/Drive/GetDrives');
-  }
-
-  getAdmin(username){
+  getUser(username){
     let params: HttpParams = new HttpParams()
     .set('username', username);
     let userId = this.httpClient.get("http://localhost:51680/api/AppUser/GetUser/"+username).subscribe(
       res => {        
-        this.AdminId = res as number;
+        this.CustomerId = res as number;
       }
     )
   }
 
+
   ngOnInit() {
-    this.Price = 0;
-    this.Status = RideStatus[0]
-    this.getAdmin(localStorage.getItem("username"));
     this.getLocations();
-    this.getDrivers();
+    this.getUser(localStorage.getItem("username"));
   }
 
   onSubmit(){
     if(this.CarType == "" ||
-      this.Status == "" ||
-      this.OriginId == undefined ||
-      this.DestinationId == undefined)
+      this.OriginId == undefined)
       {
         alert("Some required fields are empty."); 
       }
       else
       {   
         let drive;
-        if (this.DriverId == undefined)
-        {
-          this.Status = RideStatus[0];
-          drive = new DriveClass(this.Date,this.CarType,0,this.Status,this.OriginId,this.DestinationId,this.AdminId,null,null);
-        }
-        else
-        {
-          this.Status = RideStatus[2];
-          drive = new DriveClass(this.Date,this.CarType,0,this.Status,this.OriginId,this.DestinationId,this.AdminId,this.DriverId,null);
-        }
+        this.Status = RideStatus[0];
+        drive = new DriveClass(this.Date,this.CarType,0,this.Status,this.OriginId,this.DestinationId,null,null,this.CustomerId);
 
         let headers = new HttpHeaders();
         headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
@@ -115,7 +93,7 @@ export class AddDriveComponent implements OnInit {
           y.subscribe(
           res => {  
             console.log("Successfully added drive!");
-            this.myForm.reset();          
+            this.route.navigate(['/home'])     
           },
           error => 
           {

@@ -21,7 +21,7 @@ export class ShowDrivesComponent implements OnInit {
   
   ngOnInit() {
     this.getDrives();
-    this.comment = new CommentClass("",null,null,null);
+    this.comment = new CommentClass("",null,null,null,null);
   }
 
   getDrives()
@@ -49,6 +49,7 @@ export class ShowDrivesComponent implements OnInit {
           this.comment.Date = res[0].Date;
           this.comment.Grade = res[0].Grade;
           this.comment.DriveId = res[0].DriveId;
+          this.comment.CustomerId = res[0].CustomerId;
         } 
         else
         {

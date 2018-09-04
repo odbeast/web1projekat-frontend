@@ -38,7 +38,9 @@ export class AddCommentComponent implements OnInit {
   {
       let driveTmp = this.httpClient.get("http://localhost:51680/api/Drive/GetDriveById/"+this.DriveId).subscribe(
         res => {        
+          let ci = res[0].CustomerId;
           this.Drive = res as DriveClass;
+          this.CustomerId = ci;
         }
       )
   } 
@@ -60,7 +62,7 @@ export class AddCommentComponent implements OnInit {
       headers = headers.append('Content-type', 'application/x-www-form-urlencoded');
       headers.append('enctype','multipart/form-data');
 
-      let comment = new CommentClass(this.Description,this.Date,this.Grade,this.DriveId);
+      let comment = new CommentClass(this.Description,this.Date,this.Grade,this.DriveId,this.CustomerId);
 
       let fd = new FormData();                 
       fd.append('comment',JSON.stringify(comment));          

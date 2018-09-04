@@ -27,4 +27,7 @@ export class HomeComponent implements OnInit {
     return this.navbar.IsDriver();
   }
 
+  IsCustomer() {
+    return this.navbar.IsCustomer();
+  }
 }

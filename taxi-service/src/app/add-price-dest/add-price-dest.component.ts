@@ -89,7 +89,7 @@ export class AddPriceDestComponent implements OnInit {
         let userId = this.httpClient.get("http://localhost:51680/api/Drive/ChangePriceDestination/"+this.DriveId +`/` + this.Price +`/` + this.DestinationId).subscribe(
           res => {        
               console.log("PriceDestination changed!");
-                this.route.navigate(['/home']);
+                this.route.navigate(['/add-comment']);
           });
       }
   }

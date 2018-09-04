@@ -38,7 +38,8 @@
       <li *ngIf="IsAdmin()" class="nav-item"><a class="nav-link" [routerLink]="['/show-own-drives']">ShowOwnDrives</a></li>       
       <li *ngIf="IsDriver()" class="nav-item"><a class="nav-link" [routerLink]="['/change-location']">ChangeLocation</a></li> 
       <li *ngIf="IsDriver()" class="nav-item"><a class="nav-link" [routerLink]="['/change-status']">ChangeStatus</a></li>  
-      <li *ngIf="IsDriver()" class="nav-item"><a class="nav-link" [routerLink]="['/show-wait-drives']">ShowCreatedDrives</a></li>      
+      <li *ngIf="IsDriver()" class="nav-item"><a class="nav-link" [routerLink]="['/show-wait-drives']">ShowCreatedDrives</a></li> 
+      <li *ngIf="IsCustomer()" class="nav-item"><a class="nav-link" [routerLink]="['/take-a-taxi']">TakeATaxi</a></li>      
       <li class="nav-item"><a class="nav-link" [routerLink]="['/filter']">Filter</a></li>     
       <li class="nav-item"><a class="nav-link" [routerLink]="['/search']">Search</a></li>  
       <li class="nav-item"><a class="nav-link" [routerLink]="['/sort']">Sort</a></li>  

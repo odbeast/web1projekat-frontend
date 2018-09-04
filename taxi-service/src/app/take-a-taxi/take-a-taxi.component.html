@@ -1,0 +1,39 @@
+<div>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <table>
+        <h3>Drive Information</h3>
+        <tr>
+            <td>
+                  <label for = "Date">Date:</label>
+            </td>
+            <td>
+                  <input type="datetime-local" name="Date" id="Date" [(ngModel)]="Date"/>
+            </td>
+      </tr>
+      <tr>
+        <td>
+              <label>CarType:</label>
+        </td>
+        <td>
+          <select style="width: 100%" name="Cars" id="CarType" [(ngModel)]="CarType">
+            <option value="PassengerCar">PassengerCar</option>
+            <option value="Van">Van</option>
+         </select>
+        </td>
+      </tr> 
+      <tr>
+        <td>
+            <label for = "Origin">Origin:</label>
+        </td>
+        <td>
+            <select style="width: 100%" name="Origins" id="OriginId" [(ngModel)]="OriginId">
+                <option *ngFor = "let location of locations" value={{location.Id}} >{{location.Street}} {{location.HouseNumber}}</option>
+            </select>
+        </td>  
+    </tr>
+    </table>
+    <div>
+        <input class="button button1" type="submit" value="Take"/>
+      </div>
+  </form>
+</div>

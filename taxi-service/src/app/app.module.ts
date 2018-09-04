@@ -32,6 +32,10 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from '../app/interceptors/tokeninterceptor';
 import { IsAdminGuard } from './guards/isAdmin.guard';
 import { IsDriverGuard } from './guards/isDriver.guard';
+import { TakeATaxiComponent } from './take-a-taxi/take-a-taxi.component';
+import { ShowUserDrivesComponent } from './show-user-drives/show-user-drives.component';
+import { IsCustomerGuard } from './guards/isCustomer.guard';
+import { IsNotAdminGuard } from './guards/isNotAdmin.guard';
 
 const  Routes = [
   {
@@ -69,6 +73,7 @@ const  Routes = [
   {
     path : "user-profile", 
     component: UserProfileComponent,
+    canActivate: [IsCustomerGuard],
   },
   {
     path : "change-location", 
@@ -83,6 +88,7 @@ const  Routes = [
   {
     path : "show-drives", 
     component: ShowDrivesComponent,
+    canActivate: [IsAdminGuard],
   },
   {
     path : "show-own-drives", 
@@ -107,7 +113,7 @@ const  Routes = [
   {
     path : "add-comment", 
     component: AddCommentComponent,
-    canActivate: [IsDriverGuard],
+    canActivate: [IsNotAdminGuard],
   },
   {
     path : "add-price-destination", 
@@ -134,6 +140,11 @@ const  Routes = [
   {
     path : "sort", 
     component: SortComponent,
+  },
+  {
+    path : "take-a-taxi", 
+    component: TakeATaxiComponent,
+    canActivate: [IsCustomerGuard],
   },
   {
     path: "other",
@@ -170,7 +181,9 @@ const  Routes = [
     FilterComponent,
     SearchComponent,
     SearchByNameComponent,
-    SortComponent
+    SortComponent,
+    TakeATaxiComponent,
+    ShowUserDrivesComponent
   ],
   imports: [
     BrowserModule,
@@ -186,6 +199,8 @@ const  Routes = [
   },
   IsAdminGuard, 
   IsDriverGuard,
+  IsCustomerGuard,
+  IsNotAdminGuard,
   NavbarComponent,
 ],
   bootstrap: [AppComponent]

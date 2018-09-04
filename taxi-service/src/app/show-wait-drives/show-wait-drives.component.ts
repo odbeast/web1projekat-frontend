@@ -46,11 +46,22 @@ export class ShowWaitDrivesComponent implements OnInit {
 
   TakeDrive(Id : number)
   {
-     this.httpClient.get("http://localhost:51680/api/Driver/TakeDrive/"+this.DriverId + `/` +Id).subscribe(
-      res => {
-        console.log("Succesfully accepted drive!");
-        this.route.navigate(['/home']);
-      });
+    let driver = this.httpClient.get("http://localhost:51680/api/AppUser/GetUserById/"+this.DriverId).subscribe(
+      res => {        
+        this.Driver = res as DriverClass;
+        if(this.Driver.Available == true)
+        {
+          this.httpClient.get("http://localhost:51680/api/Driver/TakeDrive/"+this.DriverId + `/` +Id).subscribe(
+           res => {
+             console.log("Succesfully accepted drive!");
+             this.route.navigate(['/home']);
+           });
+        }
+        else
+        {
+          alert("Driver is not available!");
+        }
+      })
   }
 
   getDrivesByStatus(status : string)

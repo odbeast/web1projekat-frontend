@@ -42,4 +42,13 @@ isCustomer() : boolean {
 
     return false;
   }
+
+  IsNotDriver() : boolean {
+    if ( localStorage.getItem("role") != "Driver")
+    {
+        return true;
+    }
+
+    return false;
+    }
 }
