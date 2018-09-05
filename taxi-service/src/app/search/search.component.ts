@@ -77,7 +77,7 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmitSearchByDate(){
-    if(this.Date1 == undefined &&
+    if(this.Date1 == undefined ||
       this.Date2 == undefined)
       {
         alert("Some required fields are empty."); 
@@ -125,7 +125,7 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmitSearchByPrice(){
-    if(this.Price1 == undefined ||
+    if(this.Price1 == undefined &&
     this.Price2 == undefined)
     {
       alert("Some required fields are empty."); 
